@@ -87,7 +87,14 @@ public class MenuPanel extends JPanel {
     /** Creates a styled retro-looking button with hover effect */
     private JButton createStyledButton(String text) {
         JButton button = new JButton(text);
-        button.setFont(GameConstants.BUTTON_FONT);
+
+        Font emojiFont = new Font("Segoe UI Emoji", Font.BOLD, 20);
+        if (emojiFont.canDisplay('✖') && emojiFont.canDisplay('▶')) {
+            button.setFont(emojiFont);
+        } else {
+            button.setFont(GameConstants.BUTTON_FONT);
+        }
+
         button.setForeground(GameConstants.TEXT_COLOR);
         button.setBackground(GameConstants.BUTTON_BG);
         button.setFocusPainted(false);
